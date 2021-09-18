@@ -498,11 +498,11 @@
         "contractDependencies": [
           62,
           163,
-          425,
           983,
           1008,
           1341,
           1362,
+          425,
           1487,
           1507
         ],
@@ -1185,11 +1185,11 @@
         "contractDependencies": [
           62,
           163,
-          425,
           983,
           1008,
           1341,
           1362,
+          425,
           1487,
           1507
         ],
@@ -1825,12 +1825,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x40aB4710D0AeBfDEF3Acf5607AF2d5A8a01604b1",
-      "transactionHash": "0x1f5aed5b7aa4393a37341e9a9e1eb3259296c0e856d8102f3409ab34ce893b2e"
+      "address": "0x4B4eA10E7d92527A692F1F6B8Af587Be6D479504",
+      "transactionHash": "0x1a679131223459aaa132a5d23b3cab86f2c30833273ce5372aa8af85f41f50ae"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2021-09-18T02:56:07.777Z",
+  "updatedAt": "2021-09-18T03:36:18.537Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {
