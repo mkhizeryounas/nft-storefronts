@@ -6,7 +6,6 @@ import Color from '../abis/Color.json';
 const App = () => {
   const [account, setAccount] = useState('');
   const [contract, setContract] = useState(null);
-  const [totalSupply, setTotalSupply] = useState(0);
   const [colors, setColors] = useState([]);
   const [inputColor, setInputColor] = useState('');
 
@@ -32,6 +31,7 @@ const App = () => {
     const web3 = window.web3;
     // Load account
     const accounts = await web3.eth.getAccounts();
+    console.log('accounts', accounts);
     setAccount(accounts[0]);
 
     const networkId = await web3.eth.net.getId();
@@ -44,7 +44,6 @@ const App = () => {
       const contractTotalSupply = await loadedContract.methods
         .totalSupply()
         .call();
-      setTotalSupply(contractTotalSupply);
       const colorList = [...colors];
       for (var i = 1; i <= contractTotalSupply; i++) {
         const color = await loadedContract.methods.colors(i - 1).call();
@@ -57,8 +56,8 @@ const App = () => {
   };
 
   const mint = (color) => {
-    color = color.startsWith('#') ? color : `#${color}`;
-    console.log('color', color);
+    color = color === '' ? '#777777' : color;
+    color = (color.startsWith('#') ? color : `#${color}`).toUpperCase();
     contract.methods
       .mint(color)
       .send({ from: account })
@@ -82,9 +81,7 @@ const App = () => {
         <ul className='navbar-nav px-3'>
           <li className='nav-item text-nowrap d-none d-sm-none d-sm-block'>
             <small className='text-white'>
-              <span id='account'>
-                {totalSupply} - {account}
-              </span>
+              <span id='account'>{account}</span>
             </small>
           </li>
         </ul>
