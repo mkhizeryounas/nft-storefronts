@@ -9,8 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "concurrently -n server,client \"cd ./app/server && npm i\" \"cd ./app/client && yarn\"",
-    "start": "concurrently -n server,client \"cd ./app/server && npm start\" \"cd ./app/client && yarn start\"",
-    "dev": "concurrently -n server,client \"cd ./app/server && npm run dev\" \"cd ./app/client && yarn start\""
+    "start": "concurrently -n server,client \"cd ./app/server && npm start\" \"cd ./app/client && PORT=4000 yarn start\"",
+    "dev": "concurrently -n server,client \"cd ./app/server && npm run dev\" \"cd ./app/client && PORT=4000 yarn start\""
   },
   "repository": {
     "type": "git",

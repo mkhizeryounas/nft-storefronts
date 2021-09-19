@@ -40,11 +40,11 @@ const App = () => {
       const address = networkData.address;
       const loadedContract = new web3.eth.Contract(abi, address);
       setContract(loadedContract);
-      // console.log('loadedContract.methods', loadedContract.methods.totalSupply);
+      const colorList = [];
       const contractTotalSupply = await loadedContract.methods
         .totalSupply()
         .call();
-      const colorList = [...colors];
+      console.log({ contractTotalSupply, loadedContract });
       for (var i = 1; i <= contractTotalSupply; i++) {
         const color = await loadedContract.methods.colors(i - 1).call();
         colorList.push(color);
@@ -79,7 +79,7 @@ const App = () => {
           Color Tokens
         </a>
         <ul className='navbar-nav px-3'>
-          <li className='nav-item text-nowrap d-none d-sm-none d-sm-block'>
+          <li className='nav-item text-nowrap d-none d-sm-block'>
             <small className='text-white'>
               <span id='account'>{account}</span>
             </small>
@@ -88,8 +88,9 @@ const App = () => {
       </nav>
       <div className='container-fluid mt-5'>
         <div className='row'>
-          <main role='main' className='col-lg-12 d-flex text-center'>
-            <div className='content mr-auto ml-auto'>
+          <div className='col-lg-4'></div>
+          <main role='main' className='col-lg-4 text-center'>
+            <center className='content'>
               <h1>Issue Token</h1>
               <form
                 onSubmit={(event) => {
@@ -111,7 +112,7 @@ const App = () => {
                   value='MINT'
                 />
               </form>
-            </div>
+            </center>
           </main>
         </div>
         <hr />

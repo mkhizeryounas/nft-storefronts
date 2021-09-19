@@ -16,4 +16,8 @@ contract Color is ERC721 {
         _mint(msg.sender, _id);
         _colorExists[_color] = true;
     }
+
+    function totalSupply() public view returns (uint256) {
+        return colors.length;
+    }
 }
